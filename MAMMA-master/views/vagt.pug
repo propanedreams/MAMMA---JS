@@ -1,0 +1,178 @@
+doctype
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        link(rel='icon', sizes='16x16 32x32 48x48 64x64', href='images/favicon.ico')
+        title Vagt
+        link(rel="stylesheet", href="css/styles.css")
+        link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.8.1/css/all.css")
+    body
+        div(class="container1")
+            include includes/menuBar.pug
+        div(class="container2")
+            h1 Vagt               
+            h3 Her kan du tilføje vagter til ugens dage
+            div(class="medarbejdere")
+                    div(class="tilføjMedarbejder")
+                        button(id="showDialog" name="showDialog" onclick="favDialog.showModal()") +
+                        h2 Tilføj Vagt
+                    dialog(id="favDialog" name="favDialog")
+                            form(action='/vagt/createvagt', method='POST')
+                                div(class="inputMedarbejdere")
+                                    div(class="navnInput")
+                                        label( class="vagtLabel") Start tidspunkt:    
+                                        input(class="inputTimeVagt" type="time" name="startTid")
+                                    div(class="timerInput")
+                                        label(class="vagtLabel") Slut tidspunkt:
+                                        input(class="inputTimeVagt" type="time" name="slutTid")
+                                    div(class="stueSelecter")
+                                        label(class="vagtLabel") Dag: 
+                                        select(class="vagtSelector" name="vagtSelector" type="text")  
+                                            each dag in dage 
+                                                option(value=`${dag}`)= dag
+                                    div(class="checkInput")
+                                        label(class="vagtLabel") Pædagog:
+                                        input(class="checkboxPædagog" name="chbPaedo" type="checkbox")            
+                                    div(id ="TilføjInput")
+                                        button(id="tilføjMedarbejderBtn" type="submit") Tilføj
+                                        button(id="cancelTilføjMedarbejderBtn" value="cancel" formmethod="dialog") Cancel
+ 
+            div(class="vagtPlanBox", style={color: 'white', background: '#DA4453'}, value='mandag') Mandag   
+                div(class="medarbejder")
+                                p(class="medarbejderInfoNavn")= 'Navn'
+                                p(class="medarbejderInfoNavn")= 'Start'
+                                p(class="medarbejderInfo")= 'Slut'
+                                p(class="medarbejderInfo")= 'Pædagog'
+                                p(class="medarbejderInfo")= 'Slet'
+                each vagt in vagter
+                        if vagt.dag == 'mandag'
+                            div(class="medarbejder")
+                                if vagt.medarbejder != null
+                                    p(class="medarbejderInfoNavn")= vagt.medarbejder.navn
+                                else
+                                    p(class="medarbejderInfoNavn") -
+                                p(class="medarbejderInfoNavn")='kl ' +  vagt.start
+                                p(class="medarbejderInfo")= 'kl ' + vagt.slut
+                                if vagt.isPaedagog
+                                    p(class="medarbejderInfo") Pædagog
+                                else
+                                    p(class="medarbejderInfo") -
+                                div(class="sletMedarbejder")
+                                    form(action='/vagt/deletevagt', method="POST")
+                                        input(type="text" id="medarbejderID" name="vagtID" style="display: none;" value=vagt.docID)
+                                        button(type="submit" id="trashBtn")
+                                            span(class="trash")
+                                                span
+                                                i
+            div(class="vagtPlanBox", style={color: 'white', background: '#4A89DC'}, value='tirsdag') Tirsdag    
+                div(class="medarbejder")
+                                p(class="medarbejderInfoNavn")= 'Navn'
+                                p(class="medarbejderInfoNavn")= 'Start'
+                                p(class="medarbejderInfo")= 'Slut'
+                                p(class="medarbejderInfo")= 'Pædagog'
+                                p(class="medarbejderInfo")= 'Slet'
+                each vagt in vagter
+                        if vagt.dag == 'tirsdag'
+                            div(class="medarbejder")
+                                if vagt.medarbejder != null
+                                    p(class="medarbejderInfoNavn")= vagt.medarbejder.navn
+                                else
+                                    p(class="medarbejderInfoNavn") -
+                                p(class="medarbejderInfoNavn")='kl ' +  vagt.start
+                                p(class="medarbejderInfo")= 'kl ' + vagt.slut
+                                if vagt.isPaedagog
+                                    p(class="medarbejderInfo") Pædagog
+                                else
+                                    p(class="medarbejderInfo") -
+                                div(class="sletMedarbejder")
+                                    form(action='/vagt/deletevagt', method="POST")
+                                        input(type="text" id="medarbejderID" name="vagtID" style="display: none;" value=vagt.docID)
+                                        button(type="submit" id="trashBtn")
+                                            span(class="trash")
+                                                span
+                                                i
+            div(class="vagtPlanBox", style={color: 'white', background: '#8CC152'}, value='onsdag') Onsdag
+                div(class="medarbejder")
+                                p(class="medarbejderInfoNavn")= 'Navn'
+                                p(class="medarbejderInfoNavn")= 'Start'
+                                p(class="medarbejderInfo")= 'Slut'
+                                p(class="medarbejderInfo")= 'Pædagog'
+                                p(class="medarbejderInfo")= 'Slet'
+                each vagt in vagter
+                    if vagt.dag == 'onsdag'
+                            div(class="medarbejder")
+                                if vagt.medarbejder != null
+                                    p(class="medarbejderInfoNavn")= vagt.medarbejder.navn
+                                else
+                                    p(class="medarbejderInfoNavn") -
+                                p(class="medarbejderInfoNavn")='kl ' +  vagt.start
+                                p(class="medarbejderInfo")= 'kl ' + vagt.slut
+                                if vagt.isPaedagog
+                                    p(class="medarbejderInfo") Pædagog
+                                else
+                                    p(class="medarbejderInfo") -
+                                div(class="sletMedarbejder")
+                                    form(action='/vagt/deletevagt', method="POST")
+                                        input(type="text" id="medarbejderID" name="vagtID" style="display: none;" value=vagt.docID)
+                                        button(type="submit" id="trashBtn")
+                                            span(class="trash")
+                                                span
+                                                i
+            div(class="vagtPlanBox", style={color: 'white', background: '#F6BB42'}, value='torsdag') Torsdag
+                div(class="medarbejder")
+                                p(class="medarbejderInfoNavn")= 'Navn'
+                                p(class="medarbejderInfoNavn")= 'Start'
+                                p(class="medarbejderInfo")= 'Slut'
+                                p(class="medarbejderInfo")= 'Pædagog'
+                                p(class="medarbejderInfo")= 'Slet'
+                each vagt in vagter
+                        if vagt.dag == 'torsdag'
+                            div(class="medarbejder")
+                                if vagt.medarbejder != null
+                                    p(class="medarbejderInfoNavn")= vagt.medarbejder.navn
+                                else
+                                    p(class="medarbejderInfoNavn") -
+                                p(class="medarbejderInfoNavn")='kl ' +  vagt.start
+                                p(class="medarbejderInfo")= 'kl ' + vagt.slut
+                                if vagt.isPaedagog
+                                    p(class="medarbejderInfo") Pædagog
+                                else
+                                    p(class="medarbejderInfo") -
+                                div(class="sletMedarbejder")
+                                    form(action='/vagt/deletevagt', method="POST")
+                                        input(type="text" id="medarbejderID" name="vagtID" style="display: none;" value=vagt.docID)
+                                        button(type="submit" id="trashBtn")
+                                            span(class="trash")
+                                                span
+                                                i               
+            div(class="vagtPlanBox", style={color: 'white', background: '#967ADC'}, value='fredag') Fredag
+                div(class="medarbejder")
+                                p(class="medarbejderInfoNavn")= 'Navn'
+                                p(class="medarbejderInfoNavn")= 'Start'
+                                p(class="medarbejderInfo")= 'Slut'
+                                p(class="medarbejderInfo")= 'Pædagog'
+                                p(class="medarbejderInfo")= 'Slet'
+                each vagt in vagter
+                        if vagt.dag == 'fredag'
+                            div(class="medarbejder")
+                                if vagt.medarbejder != null
+                                    p(class="medarbejderInfoNavn")= vagt.medarbejder.navn
+                                else
+                                    p(class="medarbejderInfoNavn") -
+                                p(class="medarbejderInfoNavn")='kl ' +  vagt.start
+                                p(class="medarbejderInfo")= 'kl ' + vagt.slut
+                                if vagt.isPaedagog
+                                    p(class="medarbejderInfo") Pædagog
+                                else
+                                    p(class="medarbejderInfo") -
+                                div(class="sletMedarbejder")
+                                    form(action='/vagt/deletevagt', method="POST")
+                                        input(type="text" id="medarbejderID" name="vagtID" style="display: none;" value=vagt.docID)
+                                        button(type="submit" id="trashBtn")
+                                            span(class="trash")
+                                                span
+                                                i  
+                                
+
+
+                        

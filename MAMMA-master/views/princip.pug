@@ -1,0 +1,101 @@
+doctype
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        title Principper
+        link(rel='icon', sizes='16x16 32x32 48x48 64x64', href='images/favicon.ico')
+        link(rel="stylesheet", href="css/styles.css")
+        link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.8.1/css/all.css")
+    body
+        div(class="container1")
+            include includes/menubar.pug
+        div(class="container2")
+            h1 Principper
+            h3 Her kan du oprette principper og se en oversigt over dem.
+            div(class="hemmeligKnap")
+                form(class="genererBtn" action="/princip/createprincip/oskar", method="post")
+                    button(class="genererGrundplanBtn" type="submit") Opdater princippernes vagter
+            div(class="principper")
+                    div(class="tilføjPrincip")
+                        button(id="showDialog" name="showDialog" onclick="favDialog.showModal()") +
+                        h2 Tilføj Princip
+                    dialog(id="favDialog" name="favDialog")
+                            form(action='/princip/createprincip', method='POST')
+                                div(class="inputPrincipper")
+                                    div(class="navnInput")
+                                        label( class="vagtLabel") Start tidspunkt:    
+                                        input(class="inputTimeVagt" type="time" name="startTid")
+                                    div(class="timerInput")
+                                        label(class="vagtLabel") Slut tidspunkt:
+                                        input(class="inputTimeVagt" type="time" name="slutTid")
+                                    div(class="navnInput")
+                                        label( class="principLabel") minAntalMedarbejdere:    
+                                        input(class="inputTextPrincip" type="text" name="medarbejdere")
+                                    div(class="navnInput")
+                                        label( class="principLabel") minAntalPædagoger:    
+                                        input(class="inputTextPrincip" type="text" name="pædagog")
+                                    div(class="navnInput")
+                                        label( class="principLabel") minAntalStue:    
+                                        input(class="inputTextPrincip" type="text" name="stue")
+                                    div(class="navnInput")
+                                        label( class="principLabel") minAntalTeam:    
+                                        input(class="inputTextPrincip" type="text" name="team")
+                                    div(id ="TilføjInput")
+                                        button(id="tilføjPrincipBtn" type="submit") Tilføj
+                                        button(id="cancelTilføjPrincipBtn" value="cancel" formmethod="dialog") Cancel
+            - var dagIndex = 0;
+            each dag in dage
+                h2(class="dage")= dag
+                div(class="principListe")
+                    div(class="princip")
+                        p(class="principInfoNavn")='Start'
+                        p(class="principInfoNavn")='Slut'
+                        p(class="principInfoNavn", title="Medarbejder needed")='Mn'
+                        p(class="principInfoNavn", title="Medarbejder added")='Ma'
+                        p(class="principInfoNavn", title="Pædagog needed")='Pn'
+                        p(class="principInfoNavn", title="Pædagog added")='Pa'
+                        p(class="principInfoNavn", title="Stue needed")= 'Sn'
+                        p(class="principInfoNavn", title="Stue added")= 'Sa'
+                        p(class="principInfoNavn", title="Team needed")='Tn'
+                        p(class="principInfoNavn", title="Team added")='Ta'
+                        div(class="sletPrincip")='Slet'
+                    - var principIndex = 0;
+                    each princip in principper
+                        div(class="princip")
+                            p(class="principInfoNavn")= princip.start
+                            p(class="principInfoNavn")= princip.slut                        
+                            p(class="principInfoNavn")= princip.minAntalMedarbejdere
+                            p(class="principInfoNavn")= antalM[dagIndex][principIndex]
+                            p(class="principInfoNavn")= princip.minAntalPædagoger
+                            p(class="principInfoNavn")= antalP[dagIndex][principIndex]
+                            p(class="principInfoNavn")= princip.minAntalStue
+                            p(class="principInfoNavn")= antalS[dagIndex][principIndex]
+                            p(class="principInfoNavn")= princip.minAntalTeam
+                            p(class="principInfoNavn")= antalT[dagIndex][principIndex]
+                            div(class="sletPrincip")
+                                    form(action='/princip/deleteprincip', method="POST")
+                                        input(type="text" id="principID" name="principID" style="display: none;" value=princip.docID)
+                                        button(type="submit" id="trashBtn")
+                                            span(class="trash")
+                                                span
+                                                i
+                        - principIndex++;
+                div(class="principListe")
+                    div(class="princip")
+                        p(class="principInfoNavn")='Start'
+                        p(class="principInfoNavn")='Slut'
+                        p(class="principInfoBund")='Tilføjede Vagter'
+                        p(class="principInfoBund")='De tilføjede vagters medarbejdere'
+                    each princip in principper
+                            div(class="princip")
+                                p(class="principInfoNavn")= princip.start
+                                p(class="principInfoNavn")= princip.slut
+                                div(class="principInfoBund")
+                                    each vagt in princip.vagter
+                                        if vagt.dag === dag
+                                            p(class="vagter")= vagt.start + '-' + vagt.slut
+                                div(class="principInfoBund")
+                                    each vagt in princip.vagter
+                                        if vagt.dag === dag
+                                            p(class="vagter")= vagt.medarbejder.navn
+                - dagIndex++;

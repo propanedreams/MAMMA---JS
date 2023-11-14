@@ -1,0 +1,767 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body{
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    color: #212121;
+    font-size: 50px;
+    margin: 20px 0;
+}
+
+h2 {
+    margin: 0 0 20px 0;
+}
+
+h3 {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    color: #212121;
+    margin: 0 0 20px 0;
+}
+
+.menubar{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #FFFFFF;
+    margin-left: 20px;
+}
+
+.menuContainer{
+    display: flex;
+    grid-column: 1;
+    height: 30%;
+}
+
+#logo{
+    display: flex;
+    width: 160px;
+    height: 160px;
+    margin-left: 20px;
+}
+
+.teams{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#addTeamBtn{
+    padding: 0px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: bolder;
+    margin: 0 5px 20px 0;
+}
+
+.teams form {
+    display: flex;
+    align-items: center;
+}
+
+.dbTeams form{
+    display: flex;
+    align-items: center;
+}
+
+.dbStuer form{
+    display: flex;
+    align-items: center;
+}
+
+.container1{
+    position: fixed;
+    display: flex;
+    width: 200px;
+    background-color: #4A89DC;
+    height: 100vh;
+
+}
+
+.container2{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    width: 100%;
+    margin-left: 200px;
+}
+
+.menuPunkt{
+    display: flex;
+    color: #FFFFFF;
+    font-size: 20px;
+    margin-left: 10px;
+    text-decoration: none;
+    
+}
+
+.dbTeams{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 3px 3px #888888;
+    padding: 20px 0 0 0;
+}
+
+.dbStuer h2 {
+    margin-bottom: 10px;
+}
+
+td:not(:first-child) {
+    text-align: center;
+}
+
+.dbStuer{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#teamColors{
+    border-radius: 5px;
+    margin-left: 10px;
+    font-weight: bolder;
+    font-size: 17px;
+}
+
+.teamListe{
+    margin-right: 5px;
+}
+
+.stueListe{
+    font-size: 20px;
+}
+
+#stueInput{
+    margin-left: 10px;
+    font-size: 18px;
+    width: 150px;
+}
+
+.menupunkter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 20px;
+}
+
+#trashBtn{
+    background-color: transparent;
+    border-color: transparent;
+    margin: 0;
+}
+
+.trash {
+    background: grey;
+    width: 12.25px;
+    height: 15px;
+    display: inline-block;
+    margin:0 auto;
+    position: relative;
+    border-radius: 1px;
+    }
+    
+    .trash:after {
+    position: absolute;
+    right: -18.5px;
+    left: 0;
+    bottom: -9.5px;
+    width: 56.25px;
+    font-size: 3px;
+    }
+    
+    .trash span {
+    position: absolute;
+    height: 2.25px;
+    background: grey;
+    top: -3.5px;
+    right: -1.75px;
+    left: -1.75px;
+    border-top-left-radius: 1.75px;
+    border-top-right-radius: 1.75px;
+    transform: rotate(0deg);
+    transition: transform 250ms;
+    transform-origin: 100% 19%;
+    }
+    
+    .trash span:after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 1.25px;
+    background: grey;
+    top: -1.75px;
+    border-top-right-radius: 1.75px;
+    border-top-left-radius: 1.75px;
+    transform: rotate(0deg);
+    transition: transform 250ms;
+    transform-origin: 19% 100%;
+    right: 5px;
+    }
+    
+    .trash i {
+    position:relative;
+    width: 0.75px;
+    height:9.5px;
+    background:#fff;
+    display:block;
+    margin:2.5px auto;
+    border-radius: 0.75px;
+    }
+    
+    .trash i:after {
+    content: '';
+    width: 0.75px;
+    height: 9.5px;
+    background: #fff;
+    position: absolute;
+    right: -3.5px;
+    border-radius: 0.75px;
+    }
+    
+    .trash i:before {
+    content: '';
+    width: 0.75px;
+    height: 9.5px;
+    background: #fff;
+    position: absolute;
+    left: -3.5px;
+    border-radius: 0.75px;
+    }
+    
+    .trash:hover span {
+    transform: rotate(45deg);
+    transition: transform 250ms;
+    }
+
+/*medarbejder*/
+
+.medarbejdere{
+    display: flex;
+    flex-direction: column;
+    columns: 2;
+    align-items: center;
+}
+
+.tilføjMedarbejder{
+    display: flex;
+    flex-direction: 2 column;
+    justify-content: center;
+    align-items: center;
+}
+
+#tilføjMedarbejderBtn{
+    background-color: #FFFFFF;
+    font-size: 20px;
+    margin-right: 5px;
+    margin-top: 5px;
+    border-radius: 10px;
+    width: 125px;
+    height: 35px;
+}
+
+#cancelTilføjMedarbejderBtn{
+    background-color: #FFFFFF;
+    font-size: 20px;
+    margin-top: 5px;
+    border-radius: 10px;
+    width: 125px;
+}
+
+.inputMedarbejdere{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.navnInput{
+    display: flex;
+    flex-direction: 2 column;
+}
+
+.timerInput{
+    display: flex;
+    flex-direction: 2 column;
+}
+
+.checkInput{
+    display: flex;
+    flex-direction: 2 column;
+}
+
+.stueSelecter{
+    display: flex;
+    flex-direction: 2 column;
+}
+
+.medarbejderStue{
+    width: 158px;
+    font-size: 15px;
+}
+
+.inputTextMedarbejder{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    font-size: 18px;
+    width: 150px;
+}
+
+.medarbejderLabel{
+    display: flex;
+    justify-content:flex-start;
+    margin-top: 5px;
+    margin-right: 5px;
+    font-size: 18px;
+    width: 90px;
+}
+
+.medarbejderInfo{
+    width: 5%;
+}
+
+.medarbejderInfoNavn{
+    margin: 0;
+}
+
+.medarbejderInfoTimer{
+    width: 10%;
+}
+
+.opdaterMedarbejder{
+    width: 10px;
+}
+
+.medarbejderListe{
+    display: flex;
+    flex-direction: column;
+    margin-left: 150px;
+    margin-right: 150px;
+    border-radius: 20px;
+    background-color: #4A89DC;
+    padding: 15px;
+}
+
+.medarbejder{
+    display: flex;
+    justify-content: center;
+    color: #FFFFFF;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%;
+}
+.medarbejder:first-child{
+    font-weight: bold;
+}
+.medarbejder p {
+    width: 20%;
+    text-align: center;
+}
+
+.medarbejder:hover{
+    padding-left: 5px;
+    padding-right: 5px;
+    
+    background-color: #FFFFFF;
+    color: #4A89DC;
+    border-radius: 5px;
+}
+
+.opdaterMedarbejder{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border-color: transparent;
+    font-size: large;
+}
+
+.redigereMedarbejder{
+    width: 10%;
+    text-align: center;
+}
+
+.sletMedarbejder{
+    width: 10%;
+}
+
+
+.checkboxPædagog{
+    display: flex;
+    height: 17px;
+    width: 17px;
+    margin-top: 8px;
+}
+
+#TilføjInput{
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+    margin-top: 5px;
+}
+
+#showDialog{
+    padding: 0px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: bolder;
+    margin: 0 5px 20px 0;
+}
+
+#favDialog{
+    background-color: #4A89DC;
+    border-radius: 20px;
+    color: #ffff;
+}
+
+#favDialog1{
+    background-color: #4A89DC;
+    border-radius: 20px;
+    color: #ffff;
+    display: block;
+}
+
+
+/*Vagt*/
+
+.vagtLabel{
+    display: flex;
+    justify-content:flex-start;
+    margin-top: 5px;
+    margin-right: 5px;
+    font-size: 18px;
+    width: 140px;
+}
+
+.inputTimeVagt{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    font-size: 18px;
+    margin-bottom: 5px;
+    width: 90px;
+}
+
+.vagtSelector{
+    width: 95px;
+    font-size: 15px;
+}
+
+.vagtPlanBox{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 3px 3px #888888;
+    padding: 20px 0 0 0;
+    font-size: 30px;
+}
+
+.vagtPlanBox p{
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.vagtPlanBoxListe{
+    display: flex;
+    flex-direction: 2 column;
+}
+
+/*Principper*/
+.dage{
+    text-align: center;
+}
+.principper{
+    display: flex;
+    flex-direction: column;
+    columns: 2;
+    align-items: center;
+}
+
+.tilføjPrincip{
+    display: flex;
+    flex-direction: 2 column;
+    justify-content: center;
+    align-items: center;
+}
+
+#tilføjPrincipBtn{
+    background-color: #FFFFFF;
+    font-size: 20px;
+    margin-right: 5px;
+    margin-top: 5px;
+    border-radius: 10px;
+    width: 125px;
+    height: 35px;
+}
+
+#cancelTilføjPrincipBtn{
+    background-color: #FFFFFF;
+    font-size: 20px;
+    margin-top: 5px;
+    border-radius: 10px;
+    width: 125px;
+}
+
+.inputPrincipper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.navnInput{
+    display: flex;
+    flex-direction: 2 column;
+}
+
+.timerInput{
+    display: flex;
+    flex-direction: 2 column;
+}
+
+.checkInput{
+    display: flex;
+    flex-direction: 2 column;
+}
+
+.stueSelecter{
+    display: flex;
+    flex-direction: 2 column;
+}
+
+.medarbejderStue{
+    width: 158px;
+    font-size: 15px;
+}
+
+.inputTextPrincip{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    font-size: 18px;
+    width: 150px;
+}
+
+.principLabel{
+    display: flex;
+    justify-content:flex-start;
+    margin-top: 5px;
+    margin-right: 5px;
+    font-size: 18px;
+    width: 90px;
+}
+
+.principInfo{
+    width: 5%;
+}
+
+.principInfoNavn{
+    margin: 0;
+}
+
+.principInfoBund{
+    margin: 0;
+    width: 38% !important;
+}
+
+.vagter{
+    width: 100% !important;
+    margin: 0;
+}
+
+.principInfoTimer{
+    width: 10%;
+}
+
+.opdaterPrincip{
+    width: 10px;
+}
+
+.principListe{
+    display: flex;
+    flex-direction: column;
+    margin-left: 150px;
+    margin-right: 150px;
+    border-radius: 20px;
+    background-color: #4A89DC;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.princip{
+    display: flex;
+    justify-content: center;
+    color: #FFFFFF;
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px solid white;
+}
+.princip:first-child{
+    font-weight: bold;
+}
+.princip p {
+    width: 7%;
+    text-align: center;
+}
+
+.princip:hover{
+    padding-left: 5px;
+    padding-right: 5px;
+    
+    background-color: #FFFFFF;
+    color: #4A89DC;
+    border-radius: 5px;
+}
+
+.opdaterPrincip{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border-color: transparent;
+    font-size: large;
+}
+
+.redigerePrincip{
+    width: 7%;
+    text-align: center;
+}
+
+.sletPrincip{
+    width: 7%;
+    text-align: center;
+}
+.seMedarbejdere{
+    width: 16%;
+    text-align: center;
+    display: flex;
+    overflow: hidden;
+}
+
+/* grundplan */
+.genererBtn{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.genererGrundplanBtn{
+    background-color:#DA4453;
+    color: #FFFFFF;
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 5px;
+}
+
+.btnid{
+    text-align: center;
+}
+
+#hej{
+    width: fit-content;
+}
+
+.genererGrundplanBtn:hover{
+    background-color:#e25361;
+    color: #FFFFFF;
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 5px;
+}
+
+.h2grundplan{
+    text-align: center;
+}
+
+.grundplantabel{
+    width: 100%;
+}
+
+.team{
+    margin-bottom: 20px;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    width: 85%;
+    font-weight: bold;
+    margin-left: 70px;
+    margin-right: 50px;
+}
+
+.body{
+    display: flex;
+    justify-content: center;
+    width: 85%;
+    margin-left: 70px;
+    margin-right: 50px;
+}
+
+.header p {
+    width: 100%;
+    text-align: center;
+    border: 1px solid;
+    margin: 0;
+    padding: 10px 0;
+    background-color: lightgray;
+}
+
+.body p {
+    width: 100%;
+    text-align: center;
+    border: 1px solid;
+    margin: 0;
+    padding: 10px 0;
+}
+
+.stue{
+    font-weight: bold;
+}
+
+.ugeskemaOverskrift{
+    width: 100%;
+}
+
+.plusogminus{
+    display: flex;
+    flex-direction: 2 column;
+}

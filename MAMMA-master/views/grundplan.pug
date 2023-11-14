@@ -1,0 +1,50 @@
+doctype
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        title Grundplan
+        link(rel='icon', sizes='16x16 32x32 48x48 64x64', href='images/favicon.ico')
+        link(rel="stylesheet", href="css/styles.css")
+        link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.8.1/css/all.css")
+    body
+        div(class="container1")
+            include includes/menuBar.pug
+        div(class="container2")
+            h1 Mødeplan
+            h3 Her kan du genere en mødeplan og se en oversigt over medarbejdere og vagter.  
+            div(class="btnid")
+                button(class="genererGrundplanBtn", id="hej", type="submit" onclick="window.print()") Download 
+
+            h2(class="h2grundplan") Mødeplan maj 2023
+            div(class="grundplantabel" id="grundplantabel" name="grundplantabel")
+                each team in teams
+                    div(class="team")
+                        each stue in stuer
+                            if stue.team == team.farve 
+                                div(class="body stue")
+                                    p(class="ugeskemaOverskrift", style={color: 'white', background: team.fkode}) #{stue.navn}
+                                div(class="header")
+                                    p='Navn'
+                                    p='Timer'
+                                    p='Mandag'
+                                    p='Tirsdag'
+                                    p='Onsdag'
+                                    p='Torsdag'
+                                    p='Fredag'
+                                    p='Samlet tid'
+                                each medarbejder in medarbejdere
+                                    if medarbejder.stue.navn == stue.navn
+                                        div(class="body")
+                                            p #{medarbejder.navn}
+                                            p #{medarbejder.timeAntal}
+                                            each vagt, index in ugensVagter
+                                                if medarbejderLine[index] == medarbejder 
+                                                    p= vagt[0]
+                                                    p= vagt[1]
+                                                    p= vagt[2]
+                                                    p= vagt[3]
+                                                    p= vagt[4]
+                                                    p= calcTotals[index]
+
+
+                            

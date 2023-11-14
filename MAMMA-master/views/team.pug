@@ -1,0 +1,49 @@
+doctype
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        title
+        link(rel="stylesheet", href="css/styles.css")
+        link(rel='icon', sizes='16x16 32x32 48x48 64x64', href='images/favicon.ico')
+        link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.8.1/css/all.css")
+        script(src="/routes/teamsRoute.js") 
+    body
+        div(class="container1")
+            include includes/menuBar.pug
+        div(class="container2")
+            h1 Teams               
+            h3 Her kan du oprette Teams og tilføje Stuer til dem
+            div(class="teams")
+                form(action='/team/createteam', method='POST') 
+                    button(id="addTeamBtn" type="submit") +
+                    h2 Tilføj Team
+                        select(id='teamColors', name='teamcolors' type="text")
+                            each farve in teamFarver
+                                option(value=farve)=farve 
+            each team in teams  
+                div(class="dbTeams", style={color: 'white', background: team.fkode})
+                    form(action=`/team/deleteteam`, method="POST")
+                        input(type="text" id="teamID" name="teamID" style="display: none;" value=team.docID)
+                        h2(class="teamListe")= "Team " + team.farve
+                        section
+                            button(type="submit" id="trashBtn" data-id=team.docID)
+                                span(class="trash")
+                                    span
+                                    i
+                    div(class="dbStuer")
+                        each stue in stuer
+                            form(action='/team/deletestue', method="POST")
+                                input(type="text" id="stueID" name="stueID" style="display: none;" value=stue.docID)
+                                if stue.team == team.farve 
+                                    h2(class="stueListe")= "Stue " + stue.navn
+                                    section
+                                        button(type="submit" id="trashBtn")
+                                            span(class="trash")
+                                                span
+                                                i
+                    div(class="teams")
+                        form(action='/team/createstue', method='POST') 
+                            button(id="addTeamBtn" type="submit") +
+                            h2(class="stueListe") Stue
+                                input(type="text" placeholder="Navn" id="stueInput" name='stueInput')
+                                input(type="text" id="myInput" name="myInput" style="display: none;" value=team.farve)

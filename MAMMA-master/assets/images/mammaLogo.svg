@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="200mm"
+   height="200mm"
+   viewBox="0 0 200 200"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="mammaLogo.svg"
+   inkscape:export-filename="mammaLogo.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     showguides="true"
+     inkscape:zoom="0.91490602"
+     inkscape:cx="114.76589"
+     inkscape:cy="361.78579"
+     inkscape:window-width="1920"
+     inkscape:window-height="974"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <sodipodi:guide
+       position="30.468935,100.00463"
+       orientation="0,-1"
+       id="guide3085"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Lag 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:54.238px;line-height:0;font-family:'Gill Sans Nova';-inkscape-font-specification:'Gill Sans Nova';fill:#da4453;fill-opacity:1;stroke:#da4453;stroke-width:5.5741;stroke-opacity:1"
+       x="13.392766"
+       y="104.41436"
+       id="text186"
+       transform="scale(0.82417665,1.2133321)"
+       inkscape:label="text186"><tspan
+         sodipodi:role="line"
+         id="tspan184"
+         x="13.392766"
+         y="104.41436"
+         style="fill:#da4453;fill-opacity:1;stroke:#da4453;stroke-width:5.5741;stroke-opacity:1">MAMMA</tspan></text>
+    <path
+       style="fill:#da4453;fill-opacity:0.0362319;stroke:#da4453;stroke-width:6.45794;stroke-dasharray:none;stroke-opacity:1"
+       d="M 3.9182665,137.44661 V 67.745078 l 192.3273735,0.223857 0.21638,69.125985 z"
+       id="path1991"
+       sodipodi:nodetypes="ccccc" />
+  </g>
+</svg>

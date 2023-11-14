@@ -1,0 +1,67 @@
+doctype
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        title Medarbejder
+        link(rel="stylesheet", href="css/styles.css")
+        link(rel='icon', sizes='16x16 32x32 48x48 64x64', href='images/favicon.ico')
+        link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.8.1/css/all.css")
+        script(src="/assets/dialog.js" defer)
+        script(src="./controllers/vikarController.js" defer)
+    body
+        div(class="container1")
+            include includes/menuBar.pug
+        div(class="container2")
+            h1 Vikar Liste               
+            h3 Her kan du oprette vikare og notere deres prioritering
+            div(class="medarbejdere")
+                    div(class="tilføjMedarbejder")
+                        button(id="showDialog" name="showDialog" onclick="favDialog.showModal()") +
+                        h2 Tilføj Vikar
+                    dialog(id="favDialog" name="favDialog")
+                            form(action='/vikar/createvikar', method='POST')
+                                div(class="inputMedarbejdere")
+                                    div(class="navnInput")
+                                        label( class="medarbejderLabel") Navn:    
+                                        input(class="inputTextMedarbejder" type="text" name="name")
+                                    div(class="timerInput")
+                                        label(class="medarbejderLabel") Mobil Nr.:
+                                        input(class="inputTextMedarbejder" type="text" name="mobil")
+                                    div(class="timerInput")
+                                        label(class="medarbejderLabel") Rating:
+                                        select(name="rating" id="rating")
+                                            option(value=1) 1
+                                            option(value=2) 2
+                                            option(value=3) 3
+                                            option(value=4) 4
+                                            option(value=5) 5
+                                    div(id ="TilføjInput")
+                                        button(id="tilføjMedarbejderBtn" type="submit") Tilføj
+                                        button(id="cancelTilføjMedarbejderBtn" value="cancel" formmethod="dialog") Cancel
+
+            div(class="medarbejderListe")
+                div(class="medarbejder")
+                    p(class="medarbejderInfoNavn")='Navn'
+                    p(class="medarbejderInfoNavn")='Mobil nr.'
+                    p(class="medarbejderInfoNavn")='Rating'
+                    p(class="medarbejderInfoNavn")=''
+                each vikar in vikare
+                    div(class="medarbejder")
+                            p(class="medarbejderInfoNavn")= vikar.navn
+                            p(class="medarbejderInfoTimer")= vikar.mobil
+                            p(class="medarbejderInfo")= vikar.rating
+                            form(action="/vikar/updatevikarUp", method="post") 
+                                button(type="submit") +
+                                input(type="text" id="medarbejderID" name="medarbejderID" style="display: none;" value=vikar.docID)
+                                input(type="text" id="medarbejderID" name="medarbejderRating" style="display: none;" value=vikar.rating)
+                            form(action="/vikar/updatevikarDown", method="post") 
+                                button(type="submit") -
+                                input(type="text" id="medarbejderID" name="medarbejderID" style="display: none;" value=vikar.docID)
+                                input(type="text" id="medarbejderID" name="medarbejderRating" style="display: none;" value=vikar.rating)
+                            div(class="sletMedarbejder")
+                                form(action='/vikar/deletevikar', method="POST")
+                                    input(type="text" id="medarbejderID" name="medarbejderID" style="display: none;" value=vikar.docID)
+                                    button(type="submit" id="trashBtn")
+                                        span(class="trash")
+                                            span
+                                            i

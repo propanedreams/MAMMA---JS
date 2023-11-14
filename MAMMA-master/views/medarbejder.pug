@@ -1,0 +1,63 @@
+doctype
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        title Medarbejder
+        link(rel="stylesheet", href="css/styles.css")
+        link(rel='icon', sizes='16x16 32x32 48x48 64x64', href='images/favicon.ico')
+        link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.8.1/css/all.css")
+        script(src="/assets/dialog.js" defer)
+    body
+        div(class="container1")
+            include includes/menuBar.pug
+        div(class="container2")
+            h1 Medarbejder               
+            h3 Her kan du oprette medarbejdere og tilføje stuer til dem
+            div(class="medarbejdere")
+                    div(class="tilføjMedarbejder")
+                        button(id="showDialog" name="showDialog" onclick="favDialog.showModal()") +
+                        h2 Tilføj Medarbejder
+                    dialog(id="favDialog" name="favDialog")
+                            form(action='/medarbejder/createmedarbejder', method='POST')
+                                div(class="inputMedarbejdere")
+                                    div(class="navnInput")
+                                        label( class="medarbejderLabel") Navn:    
+                                        input(class="inputTextMedarbejder" type="text" name="name")
+                                    div(class="timerInput")
+                                        label(class="medarbejderLabel") Timer:
+                                        input(class="inputTextMedarbejder" type="text" name="hours")
+                                    div(class="checkInput")
+                                        label(class="medarbejderLabel") Pædagog:
+                                        input(class="checkboxPædagog" name="chbPaedo" type="checkbox")
+                                    div(class="stueSelecter")
+                                        label(class="medarbejderLabel") Stue: 
+                                        select(class="medarbejderStue" name="medarbejderStue" type="text")  
+                                            each stue in stuer 
+                                                option(value=`${stue.docID}`)=stue.navn
+                                    div(id ="TilføjInput")
+                                        button(id="tilføjMedarbejderBtn" type="submit") Tilføj
+                                        button(id="cancelTilføjMedarbejderBtn" value="cancel" formmethod="dialog") Cancel
+
+            div(class="medarbejderListe")
+                div(class="medarbejder")
+                    p(class="medarbejderInfoNavn")='Navn'
+                    p(class="medarbejderInfoNavn")='AntalTimer'
+                    p(class="medarbejderInfoNavn")='Stue'
+                    p(class="medarbejderInfoNavn")= 'isPædagog'
+                    div(class="sletMedarbejder")='Slet'
+                each medarb in medarbejdere
+                    div(class="medarbejder")
+                            p(class="medarbejderInfoNavn")= medarb.navn
+                            p(class="medarbejderInfoTimer")= medarb.timeAntal
+                            p(class="medarbejderInfo")= medarb.stue.navn
+                            if medarb.isPaedagog
+                                p(class="medarbejderInfo") Pædagog 
+                            else 
+                                p(class="medarbejderInfo") -
+                            div(class="sletMedarbejder")
+                                form(action='/medarbejder/deletemedarbejder', method="POST")
+                                    input(type="text" id="medarbejderID" name="medarbejderID" style="display: none;" value=medarb.docID)
+                                    button(type="submit" id="trashBtn")
+                                        span(class="trash")
+                                            span
+                                            i

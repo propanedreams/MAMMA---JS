@@ -1,0 +1,21 @@
+doctype
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        title Medarbejder
+        link(rel="stylesheet", href="css/styles.css")
+        link(rel='icon', sizes='16x16 32x32 48x48 64x64', href='images/favicon.ico')
+        link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.8.1/css/all.css")
+        script(src="/assets/dialog.js" defer)
+    body
+        div(class="container1")
+            include includes/menuBar.pug
+    h1 Tilføj Team
+    -var selectedUge
+    form(action="/grundplan/"+selectedUge, method="get") 
+        button(type="submit") 
+        select(id='ugeplanerId', name='ugeplanerId' type="text")
+            each ugeplan in ugeplaner
+                option(value=ugeplan.ugeNr)=ugeplan.ugeNr
+                selectedUge=ugeplan.ugeNr
+            
